@@ -10,15 +10,9 @@ const ServiceCard = ({ index, title, icon }) => {
     <motion.div
       variants={fadeIn('right', 'spring', 0.5 * index, 0.75)}
       className="xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-card">
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+      <div className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col hover:bg-jet transition-colors duration-300">
         <img src={icon} alt={title} className="w-16 h-16 object-contain" />
-        <h3 className="text-taupe text-[18px] font-bold text-center">
+        <h3 className="text-taupe text-[18px] font-bold text-center font-beckman">
           {title}
         </h3>
       </div>
@@ -36,10 +30,14 @@ const About = () => {
 
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
-        className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-          A MERN Developer, having 3+ years of practical Experience and Expertise in creating responsive and visually appealing user interfaces using modern web technologies such as HTML, Tailwind CSS, JavaScript, React and Next.js with a keen focus on detailed and user experience.
-          A native experience in rest api’s in Node.js and Next.js for interaction with databases like MongoDB, SQL and Postgres.
+        className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px] font-poppins">
+        Full Stack Developer with 3+ years of experience engineering scalable, responsive web applications using React.js, Next.js, TypeScript, Node.js, PostgreSQL, and MongoDB.
+      </motion.p>
 
+      <motion.p
+        variants={fadeIn('', '', 0.2, 1)}
+        className="mt-3 text-taupe text-[18px] max-w-3xl leading-[30px] font-poppins">
+        Extensively experienced in direct technical communication and agile discovery sessions with US-based clients, converting high-level business goals into robust, high-performance software architectures and rapid sprint deliverables.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

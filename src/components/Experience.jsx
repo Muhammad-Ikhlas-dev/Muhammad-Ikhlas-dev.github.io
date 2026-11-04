@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -7,7 +8,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles';
 import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
-import { coverhunt, download, downloadHover } from '../assets';
+import { download, downloadHover } from '../assets';
 import { textVariant } from '../utils/motion';
 import resume from '../assets/resume.pdf';
 
@@ -48,6 +49,17 @@ const ExperienceCard = ({ experience }) => (
         style={{ margin: 0 }}>
         {experience.company_name}
       </p>
+
+      {/* Concise summary bullets */}
+      <ul className="mt-4 list-disc ml-5 space-y-2">
+        {experience.points.map((point, index) => (
+          <li
+            key={`experience-point-${index}`}
+            className="text-eerieBlack text-[14px] sm:text-[15px] font-normal font-poppins leading-[22px] tracking-[0.5px]">
+            {point}
+          </li>
+        ))}
+      </ul>
     </div>
   </VerticalTimelineElement>
 );
@@ -88,7 +100,7 @@ const Experience = () => {
                 <img
                   src={experiences[0].icon}
                   alt="resume"
-                  className={`w-[60%] h-[60%] object-contain bg-${'#333333'}`}
+                  className="w-[60%] h-[60%] object-contain"
                 />
               </div>
             }>
@@ -100,22 +112,15 @@ const Experience = () => {
               w-[125px] h-[46px] rounded-[10px] bg-jetLight 
               sm:mt-[22px] mt-[16px] hover:bg-battleGray 
               hover:text-eerieBlack transition duration-[0.2s] 
-              ease-in-out"
-              onClick={() =>
-                window.open(
-                resume, //paste the link to your resume here
-                  '_blank'
-                )
-              }
+              ease-in-out cursor-pointer"
+              onClick={() => window.open(resume, '_blank')}
               onMouseOver={() => {
-                document
-                  .querySelector('.download-btn')
-                  .setAttribute('src', downloadHover);
+                const btn = document.querySelector('.download-btn');
+                if (btn) btn.setAttribute('src', downloadHover);
               }}
               onMouseOut={() => {
-                document
-                  .querySelector('.download-btn')
-                  .setAttribute('src', download);
+                const btn = document.querySelector('.download-btn');
+                if (btn) btn.setAttribute('src', download);
               }}>
               MY RESUME
               <img
@@ -132,4 +137,4 @@ const Experience = () => {
   );
 };
 
-export default SectionWrapper(Experience, 'work');
+export default SectionWrapper(Experience, 'experience');

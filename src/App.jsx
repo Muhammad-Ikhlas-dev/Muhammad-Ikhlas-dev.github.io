@@ -7,12 +7,13 @@ import {
   Navbar,
   Tech,
   Projects,
+  Footer,
 } from './components';
 
 const App = () => {
   return (
-    <BrowserRouter>   
-      <div className="relative z-0">
+    <BrowserRouter>
+      <div className="relative z-0 bg-night text-white min-h-screen selection:bg-emerald-500 selection:text-night">
         <div>
           <Navbar />
           <Hero />
@@ -37,9 +38,12 @@ const App = () => {
             <Experience />
           </div>
         </div>
+
         <div className="relative z-0">
           <Contact />
         </div>
+
+        <Footer />
       </div>
     </BrowserRouter>
   );
